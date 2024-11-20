@@ -1,0 +1,17 @@
+name = "First Python CI"
+
+[on.push]
+branches = [ "main" ]
+
+[jobs.basic-tests]
+runs-on = "ubuntu-latest"
+
+  [[jobs.basic-tests.steps]]
+  uses = "actions/checkout@v4"
+
+  [[jobs.basic-tests.steps]]
+  name = "Set up Python"
+  uses = "actions/setup-python@v3"
+
+    [jobs.basic-tests.steps.with]
+    python-version = 3.12
